@@ -3,5 +3,5 @@ const isDebug = require('./isDebug')
 
 module.exports = {
   log,
-  isDebug,
+  isDebug
 }
