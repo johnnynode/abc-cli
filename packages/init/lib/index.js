@@ -1,5 +1,5 @@
-const Command = require('@abc.com/command');
-const { log } = require('@abc.com/utils');
+import Command from '@abc.com/command';
+import { log } from '@abc.com/utils';
 
 class InitCommand extends Command {
   // 这个方法必须自行实现，否则走默认会报错
@@ -38,4 +38,4 @@ function Init(instance) {
   return new InitCommand(instance);
 }
 
-module.exports = Init;
+export default Init;

@@ -1,9 +1,14 @@
-const commander = require('commander');
-const createInitCommand = require('@abc.com/init');
-const { log, isDebug } = require('@abc.com/utils');
-const { program } = commander;
-const pkg = require('../package.json');
-const semver = require('semver');
+import path from 'node:path';
+import fse from 'fs-extra';
+import { program } from 'commander';
+import createInitCommand from '@abc.com/init';
+import { log, isDebug } from '@abc.com/utils';
+import semver from 'semver';
+import { dirname } from 'dirname-filename-esm';
+
+const __dirname = dirname(import.meta);
+const pkgPath = path.resolve(__dirname, '../package.json');
+const pkg = fse.readJsonSync(pkgPath);
 
 const LOWEST_NDDE_VERSION = '14.0.0'; // 最低允许运行的node版本
 
@@ -33,7 +38,7 @@ process.on('uncaughtException', function(e) {
 })
 
 
-module.exports = (args) => {
+export default (args) => {
 	log.success('log test version', pkg.version);
 	program
 		.name(Object.keys(pkg.bin)[0])

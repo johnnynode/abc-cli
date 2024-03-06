@@ -1,6 +1,5 @@
-const log = require('npmlog');
-
-const isDebug = require('./isDebug');
+import log from 'npmlog';
+import isDebug from './isDebug.js';
 
 // 基于调试模式来确定输出日志的等级
 if (isDebug) {
@@ -16,4 +15,4 @@ log.heading = 'abc.com'
 log.addLevel('success', 2000, { fg: 'green', bg: 'red', bold: true })
 
 
-module.exports = log;
+export default log;
