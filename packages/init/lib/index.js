@@ -23,6 +23,15 @@ class InitCommand extends Command {
     log.verbose('init ...')
     log.verbose(name)
     log.verbose(JSON.stringify(opts))
+    /*
+    // 模拟报错的测试代码 promise
+    new Promise(resolve => {
+      resolve();
+    }).then(() => {
+      throw new Error('error from promise');
+    })
+    throw new Error('111')
+    */
   }
 
   preAction() {
